@@ -1,4 +1,4 @@
-kemendagri_id,bps_id,kemantren,jss_users,wifi_count,population_density,community_self_funding
+kemendagri_code,bps_code,kemantren,jss_users,wifi_count,population_density,self_funding
 347101,347110,Tegalrejo,10455,77,12661,2591762000
 347102,347109,Jetis,7732,59,15702,1277190556
 347103,347106,Gondokusuman,13156,109,10841,2765833000

@@ -7,8 +7,8 @@
   $props = $attributes
       ->class([
           'placeholder:text-base-400',
-          'read-only:opacity-70 read-only:cursor-not-allowed',
-          'disabled:opacity-70 disabled:cursor-not-allowed' => $disabled,
+          'read-only:text-base-600 read-only:cursor-default',
+          'disabled:text-base-600 disabled:cursor-not-allowed' => $disabled,
           'border border-base-200 focus:ring-primary-500 focus:border-primary-500',
       ])
       ->merge([

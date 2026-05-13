@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\RoleCheck;
 use Illuminate\Foundation\Application;
 use App\Http\Middleware\EnvirontmentCheck;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -13,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
+            'role' => RoleCheck::class,
             'env' => EnvirontmentCheck::class,
         ]);
     })

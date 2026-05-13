@@ -13,13 +13,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $roles = RoleType::values();
-
             $table->ulid('id')->primary();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->enum('role', $roles)->default(RoleType::GUEST);
+            $table->enum('role', RoleType::values())->default(RoleType::GUEST);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

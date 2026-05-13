@@ -10,12 +10,12 @@
       ],
       [
           'name' => 'Settings',
-          'url' => route('config.settings'),
+          'url' => route('dashboard.settings'),
           'icon' => 'settings',
       ],
       [
           'name' => 'Help',
-          'url' => route('config.help'),
+          'url' => route('dashboard.help'),
           'icon' => 'life-buoy',
       ],
   ]);

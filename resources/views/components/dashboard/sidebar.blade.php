@@ -29,12 +29,12 @@
           ],
       ],
       [
-          'id' => 'master-data',
-          'label' => 'Master Data',
+          'id' => 'candidates',
+          'label' => 'Candidates Data',
           'menus' => [
               [
                   'type' => 'link',
-                  'href' => '#',
+                  'href' => route('candidates.index'),
                   'active' => request()->routeIs('candidates.*') && !request()->routeIs('candidates.create'),
                   'name' => 'Candidate List',
                   'icon' => 'map',
@@ -42,12 +42,18 @@
               ],
               [
                   'type' => 'link',
-                  'href' => '#',
+                  'href' => route('candidates.create'),
                   'active' => request()->routeIs('candidates.create'),
                   'name' => 'Create Candidate',
                   'icon' => 'plus',
                   'show' => Auth::user()->role == RoleType::ADMIN,
               ],
+          ],
+      ],
+      [
+          'id' => 'metrics',
+          'label' => 'Metrics Data',
+          'menus' => [
               [
                   'type' => 'link',
                   'href' => '#',
@@ -126,13 +132,13 @@
 
   <div class="absolute bottom-0 left-0 z-20 w-full bg-white border-t border-base-200">
     <div class="items-center hidden h-16 gap-2 px-6 item-center lg:flex">
-      <a href="{{ route('config.settings') }}">
+      <a href="{{ route('dashboard.settings') }}">
         <x-ui.button size="icon" variant="ghost" tooltip="Settings page" class="rounded-full size-8">
           <i data-lucide="settings" class="size-5"></i>
         </x-ui.button>
       </a>
 
-      <a href="{{ route('config.help') }}">
+      <a href="{{ route('dashboard.help') }}">
         <x-ui.button size="icon" variant="ghost" tooltip="Help page" class="rounded-full size-8">
           <i data-lucide="help-circle" class="size-5"></i>
         </x-ui.button>

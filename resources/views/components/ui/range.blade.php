@@ -14,7 +14,7 @@
       ->class([
           'range-thumb',
           'focus:ring-0 focus:outline-none cursor-pointer',
-          'disabled:opacity-70 disabled:cursor-not-allowed' => $disabled,
+          'disabled:text-base-600 disabled:cursor-not-allowed' => $disabled,
       ])
       ->merge([
           'max' => $max,

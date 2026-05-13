@@ -4,19 +4,21 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class EnvirontmentCheck
+class RoleCheck
 {
     /**
      * Handle an incoming request.
      *
      * @param  Closure(Request): (Response)  $next
-     * @param mixed $environtments
+     * @param mixed $roles
      */
-    public function handle(Request $request, Closure $next, mixed ...$environtments): Response
+    public function handle(Request $request, Closure $next, mixed ...$roles): Response
     {
-        if (!app()->environment($environtments)) return redirect()->route('dashboard');
+        $user = Auth::user();
+        if (!in_array($user->role->value, $roles)) abort(403, 'Unauthorized action.');
         return $next($request);
     }
 }
