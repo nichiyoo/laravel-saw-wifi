@@ -77,6 +77,7 @@ class MetricController extends Controller
     {
         return view('dashboard.metrics.show', [
             'metric' => $metric,
+            'variables' => collect(VariableType::cases()),
         ]);
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DssController;
 use App\Http\Controllers\MetricController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CandidateController;
@@ -35,6 +36,13 @@ Route::middleware('auth')
 
         Route::resource('metrics', MetricController::class)->only('index');
         Route::middleware('role:admin')->resource('metrics', MetricController::class)->except('index');
+
+        Route::prefix('calculate')
+            ->name('calculate.')
+            ->controller(DssController::class)
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+            });
     });
 
 

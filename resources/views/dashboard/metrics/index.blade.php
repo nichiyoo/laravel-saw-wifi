@@ -57,7 +57,11 @@
       @forelse ($metrics as $metric)
         <tr>
           <td class="w-10">{{ $metrics->firstItem() + $loop->index }}</td>
-          <td>{{ $metric->variable->label() }}</td>
+          <td>
+            <a href="{{ route('metrics.show', $metric) }}" class="font-medium hover:text-primary-500">
+              {{ $metric->variable->label() }}
+            </a>
+          </td>
           <td>{{ $metric->description ?? '-' }}</td>
           <td>
             <span class="px-2 py-1 text-xs font-medium rounded-full {{ $metric->type->style() }}">
@@ -73,7 +77,7 @@
                 </a>
               @endcan
               @can('delete', $metric)
-                <x-delete id="{{ $metric->ulid }}" title="{{ $metric->variable->label() }}"
+                <x-delete id="{{ $metric->id }}" title="{{ $metric->variable->label() }}"
                   route="{{ route('metrics.destroy', $metric) }}" />
               @endcan
             </div>

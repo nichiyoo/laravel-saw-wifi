@@ -76,7 +76,7 @@
                 </a>
               @endcan
               @can('delete', $candidate)
-                <x-delete id="{{ $candidate->ulid }}" title="{{ $candidate->kemantren }}"
+                <x-delete id="{{ $candidate->id }}" title="{{ $candidate->kemantren }}"
                   route="{{ route('candidates.destroy', $candidate) }}" />
               @endcan
             </div>

@@ -78,7 +78,7 @@
           'menus' => [
               [
                   'type' => 'link',
-                  'href' => '#',
+                  'href' => route('calculate.index'),
                   'active' => request()->routeIs('calculate.*'),
                   'name' => 'Run Calculation',
                   'icon' => 'calculator',

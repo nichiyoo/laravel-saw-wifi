@@ -7,8 +7,8 @@
   $props = $attributes
       ->class([
           'placeholder:text-base-400',
-          'read-only:text-base-600 read-only:cursor-default',
           'disabled:text-base-600 disabled:cursor-not-allowed' => $disabled,
+          'read-only:text-base-600 read-only:cursor-default read-only:pointer-events-none',
           'border border-base-200 focus:ring-primary-500 focus:border-primary-500',
           'pl-12' => isset($left),
           'pr-12' => isset($right),

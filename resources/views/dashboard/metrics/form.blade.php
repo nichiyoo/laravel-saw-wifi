@@ -1,6 +1,5 @@
 @php
   use Repo\SawEngine\Enums\AttributeType;
-
   $readonly = $readonly ?? false;
 @endphp
 
