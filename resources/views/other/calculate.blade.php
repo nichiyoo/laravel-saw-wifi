@@ -24,8 +24,8 @@
         </p>
         <p>
           A total of <strong>{{ $total }} kemantren</strong> were evaluated using the Simple Additive Weighting
-          (SAW) method. Benefit criteria (green) reward higher raw values &mdash; more JSS users or higher population
-          density increases the score. Cost criteria (yellow) reward lower raw values &mdash; fewer existing access
+          (SAW) method. Benefit criteria (green) reward higher raw values more JSS users or higher population
+          density increases the score. Cost criteria (yellow) reward lower raw values fewer existing access
           points or less community self-funding indicates greater need.
         </p>
         <p>

@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CandidateSeeder::class,
             MetricSeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }

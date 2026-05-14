@@ -24,26 +24,30 @@ class SettingController extends Controller
      */
     public function index(): View
     {
-        $filepath = storage_path('app/settings.json');
-        $content = file_get_contents($filepath);
-        $settings = json_decode($content, true);
-
         return view('other.settings', [
-            'registration_enabled' => $settings['registration_enabled'] ?? true,
+            'seo_title' => Setting::get('seo_title'),
+            'seo_author' => Setting::get('seo_author'),
+            'seo_keywords' => Setting::get('seo_keywords'),
+            'seo_description' => Setting::get('seo_description'),
+            'registration_enabled' => Setting::get('registration_enabled'),
         ]);
     }
 
     /**
-     * store the application settings.
+     * Store the application settings.
      */
     public function store(StoreSettingRequest $request): RedirectResponse
     {
-        file_put_contents(
-            storage_path('app/settings.json'),
-            json_encode([
-                'registration_enabled' => (bool) $request->registration_enabled
-            ], JSON_PRETTY_PRINT),
-        );
+        collect([
+            'seo_title',
+            'seo_description',
+            'seo_keywords',
+            'seo_author'
+        ])
+            ->filter(fn($key) => $request->has($key))
+            ->each(fn($key) => Setting::set($key, $request->$key));
+
+        if ($request->has('registration_enabled')) Setting::set('registration_enabled', (bool) $request->registration_enabled);
 
         return redirect()
             ->route('settings.index')

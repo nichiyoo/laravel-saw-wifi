@@ -4,6 +4,7 @@
 <x-head />
 
 @php
+  use App\Models\Setting;
   $names = ['John Doe', 'Jane Doe', 'Jane Doe'];
 @endphp
 
@@ -14,10 +15,10 @@
       <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
 
       <div class="container relative flex flex-col w-full max-w-4xl gap-2 mx-auto text-white">
-        <h1 class="text-6xl font-bold">{{ config('seo.title') }}</h1>
+        <h1 class="text-6xl font-bold">{{ Setting::get('seo_title') }}</h1>
         <span class="text-lg">{{ config('app.tagline') }}</span>
         <p class="text-base-200">
-          {{ config('seo.description') }}
+          {{ Setting::get('seo_description') }}
         </p>
         <div class="flex items-center gap-2">
           <x-avatar-list :names="$names" class="mr-10 size-12" />

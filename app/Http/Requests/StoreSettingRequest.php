@@ -22,7 +22,11 @@ class StoreSettingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'registration_enabled' => ['required', 'boolean'],
+            'registration_enabled' => ['sometimes', 'boolean'],
+            'seo_title' => ['sometimes', 'required', 'string', 'max:255'],
+            'seo_description' => ['sometimes', 'required', 'string', 'max:500'],
+            'seo_keywords' => ['sometimes', 'required', 'string', 'max:500'],
+            'seo_author' => ['sometimes', 'required', 'string', 'max:255'],
         ];
     }
 }

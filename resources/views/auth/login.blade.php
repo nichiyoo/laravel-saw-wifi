@@ -1,3 +1,7 @@
+@php
+  use App\Models\Setting;
+@endphp
+
 <x-guest-layout>
   <x-ui.heading>
     <x-slot:title>Sign in</x-slot:title>
@@ -35,10 +39,10 @@
     </x-ui.button>
 
 
-    @registerable
+    @if (Setting::get('registration_enabled'))
       <p class="text-center">
         Don't have an account? <a href="{{ route('register') }}" class="text-primary-500">Register</a>
       </p>
-    @endregisterable
+    @endif
   </form>
 </x-guest-layout>
