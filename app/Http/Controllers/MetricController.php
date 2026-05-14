@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Metric;
-use App\Models\Candidate;
 use Illuminate\View\View;
+use App\Enums\VariableType;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreMetricRequest;
 use App\Http\Requests\UpdateMetricRequest;
@@ -48,9 +48,12 @@ class MetricController extends Controller
     public function create(): View
     {
         $used = Metric::query()->pluck('variable');
+        $variables = collect(VariableType::cases());
 
         return view('dashboard.metrics.create', [
-            'variables' => collect(Candidate::variables)->diff($used)->values(),
+            'variables' => $variables->reject(function ($item) use ($used) {
+                return $used->contains($item);
+            }),
         ]);
     }
 
@@ -59,7 +62,8 @@ class MetricController extends Controller
      */
     public function store(StoreMetricRequest $request): RedirectResponse
     {
-        Metric::create($request->validated());
+        $validated = $request->validated();
+        Metric::query()->create($validated);
 
         return redirect()
             ->route('metrics.index')
@@ -81,13 +85,14 @@ class MetricController extends Controller
      */
     public function edit(Metric $metric): View
     {
-        $used = Metric::query()
-            ->where('ulid', '!=', $metric->ulid)
-            ->pluck('variable');
+        $used = Metric::query()->where($metric->id)->pluck('variable');
+        $variables = collect(VariableType::cases());
 
         return view('dashboard.metrics.edit', [
             'metric' => $metric,
-            'variables' => collect(Candidate::variables)->diff($used)->values(),
+            'variables' => $variables->reject(function ($item) use ($used) {
+                return $used->contains($item);
+            }),
         ]);
     }
 
@@ -96,7 +101,8 @@ class MetricController extends Controller
      */
     public function update(UpdateMetricRequest $request, Metric $metric): RedirectResponse
     {
-        $metric->update($request->validated());
+        $validated = $request->validated();
+        $metric->update($validated);
 
         return redirect()
             ->route('metrics.index')

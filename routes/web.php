@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MetricController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CandidateController;
-use App\Http\Controllers\MetricController;
 use App\Http\Controllers\DashboardController;
 
 Route::middleware('auth')
@@ -14,8 +14,11 @@ Route::middleware('auth')
             ->controller(DashboardController::class)
             ->group(function () {
                 Route::get('/', 'index')->name('dashboard');
+                Route::get('/about', 'about')->name('dashboard.about');
                 Route::get('/help', 'help')->name('dashboard.help');
                 Route::get('/settings', 'settings')->name('dashboard.settings');
+                Route::get('/download-dataset', 'downloadDataset')->name('dashboard.download-dataset');
+                Route::get('/download-paper', 'downloadPaper')->name('dashboard.download-paper');
             });
 
         Route::prefix('profile')

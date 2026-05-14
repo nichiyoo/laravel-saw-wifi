@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
 use App\Helpers\ArrayHelper;
 
 class DashboardController extends Controller
 {
     /**
-     * 
+     * Show the dashboard landing page.
      */
     public function index()
     {
-        return view('dashboard');
+        return view('other.dashboard');
+    }
+
+    /**
+     * Show the about page.
+     */
+    public function about()
+    {
+        return view('other.about');
     }
 
     /**
@@ -41,5 +50,23 @@ class DashboardController extends Controller
     public function settings()
     {
         return view('other.settings');
+    }
+
+    /**
+     * Download the dataset CSV.
+     */
+    public function downloadDataset()
+    {
+        $path = base_path('dataset/yogyakarta.csv');
+        return response()->download($path, 'yogyakarta.csv');
+    }
+
+    /**
+     * Download the reference paper.
+     */
+    public function downloadPaper()
+    {
+        $path = base_path('dataset/paper.pdf');
+        return response()->download($path, 'paper.pdf');
     }
 }

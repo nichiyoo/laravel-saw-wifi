@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Enums\MetricType;
+use App\Enums\VariableType;
 use Illuminate\Database\Eloquent\Model;
+use Repo\SawEngine\Enums\AttributeType;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 
 class Metric extends Model
@@ -33,7 +34,8 @@ class Metric extends Model
     protected function casts(): array
     {
         return [
-            'type' => MetricType::class,
+            'variable' => VariableType::class,
+            'type' => AttributeType::class,
             'weight' => 'decimal:2',
         ];
     }

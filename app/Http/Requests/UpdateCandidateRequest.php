@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCandidateRequest extends FormRequest
@@ -22,8 +23,18 @@ class UpdateCandidateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'bps_code' => ['required', 'string', 'max:6', 'unique:candidates,bps_code,' . $this->route('candidate')->ulid],
-            'kemendagri_code' => ['required', 'string', 'max:6', 'unique:candidates,kemendagri_code,' . $this->route('candidate')->ulid],
+            'bps_code' => [
+                'required',
+                'string',
+                'max:6',
+                Rule::unique('candidates', 'bps_code')->ignore($this->candidate)
+            ],
+            'kemendagri_code' => [
+                'required',
+                'string',
+                'max:6',
+                Rule::unique('candidates', 'kemendagri_code')->ignore($this->candidate)
+            ],
             'kemantren' => ['required', 'string', 'max:255'],
             'jss_users' => ['required', 'integer', 'min:0'],
             'wifi_count' => ['required', 'integer', 'min:0'],

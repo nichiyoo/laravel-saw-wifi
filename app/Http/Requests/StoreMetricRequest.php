@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\MetricType;
-use App\Models\Candidate;
+use App\Enums\VariableType;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
+use Repo\SawEngine\Enums\AttributeType;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreMetricRequest extends FormRequest
@@ -26,9 +26,14 @@ class StoreMetricRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'variable' => ['required', 'string', Rule::in(Candidate::variables), 'unique:metrics,variable'],
+            'variable' => [
+                'required',
+                'string',
+                new Enum(VariableType::class),
+                Rule::unique('metrics', 'variable')
+            ],
             'description' => ['nullable', 'string', 'max:1000'],
-            'type' => ['required', new Enum(MetricType::class)],
+            'type' => ['required', new Enum(AttributeType::class)],
             'weight' => ['required', 'numeric', 'min:0', 'max:999.99'],
         ];
     }

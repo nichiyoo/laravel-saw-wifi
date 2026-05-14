@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Enums;
+namespace Repo\SawEngine\Enums;
 
 use App\Enums\Contracts\HasLabel;
 use App\Enums\Contracts\HasDescription;
 
-enum MetricType: string implements HasLabel, HasDescription
+enum AttributeType: string implements HasLabel, HasDescription
 {
     case COST = 'cost';
     case BENEFIT = 'benefit';
@@ -43,6 +43,19 @@ enum MetricType: string implements HasLabel, HasDescription
         return match ($this) {
             self::COST => 'Criteria where lower values increase the final score',
             self::BENEFIT => 'Criteria where higher values increase the final score',
+        };
+    }
+
+    /**
+     * Get the styling class for the enum value.
+     *
+     * @return string
+     */
+    public function style(): string
+    {
+        return match ($this) {
+            self::COST => 'bg-red-200 text-red-700',
+            self::BENEFIT => 'bg-green-200 text-green-700',
         };
     }
 }

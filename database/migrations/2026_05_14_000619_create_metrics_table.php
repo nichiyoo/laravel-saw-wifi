@@ -1,7 +1,8 @@
 <?php
 
-use App\Enums\MetricType;
+use App\Enums\VariableType;
 use Illuminate\Support\Facades\Schema;
+use Repo\SawEngine\Enums\AttributeType;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -14,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('metrics', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->string('variable')->unique();
+            $table->enum('variable', VariableType::values())->unique();
             $table->string('description')->nullable();
-            $table->enum('type', MetricType::values());
+            $table->enum('type', AttributeType::values());
             $table->decimal('weight', 5, 2);
             $table->timestamps();
         });

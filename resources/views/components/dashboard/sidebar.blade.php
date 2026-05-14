@@ -21,8 +21,8 @@
           'menus' => [
               [
                   'type' => 'link',
-                  'href' => '#',
-                  'active' => request()->routeIs('about.*'),
+                  'href' => route('dashboard.about'),
+                  'active' => request()->routeIs('dashboard.about'),
                   'name' => 'About This Project',
                   'icon' => 'book-open',
               ],

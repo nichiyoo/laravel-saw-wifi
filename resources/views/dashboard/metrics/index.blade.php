@@ -1,3 +1,7 @@
+@php
+  use Repo\SawEngine\Enums\AttributeType;
+@endphp
+
 <x-dashboard-layout>
   <x-dashboard.heading>
     <x-slot:title>Metrics List</x-slot:title>
@@ -53,10 +57,10 @@
       @forelse ($metrics as $metric)
         <tr>
           <td class="w-10">{{ $metrics->firstItem() + $loop->index }}</td>
-          <td>{{ $metric->variable }}</td>
+          <td>{{ $metric->variable->label() }}</td>
           <td>{{ $metric->description ?? '-' }}</td>
           <td>
-            <span class="px-2 py-1 text-xs font-medium rounded-full {{ $metric->type === App\Enums\MetricType::BENEFIT ? 'text-green-700 bg-green-100' : 'text-yellow-700 bg-yellow-100' }}">
+            <span class="px-2 py-1 text-xs font-medium rounded-full {{ $metric->type->style() }}">
               {{ $metric->type->label() }}
             </span>
           </td>
@@ -69,7 +73,7 @@
                 </a>
               @endcan
               @can('delete', $metric)
-                <x-delete id="{{ $metric->ulid }}" title="{{ $metric->variable }}"
+                <x-delete id="{{ $metric->ulid }}" title="{{ $metric->variable->label() }}"
                   route="{{ route('metrics.destroy', $metric) }}" />
               @endcan
             </div>

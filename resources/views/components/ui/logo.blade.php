@@ -14,7 +14,7 @@
     </g>
   </svg>
 
-  <span class="text-lg font-bold whitespace-nowrap">
+  <span class="w-full font-bold whitespace-nowrap">
     {{ config('app.name', 'Laravel') }}
   </span>
 </div>

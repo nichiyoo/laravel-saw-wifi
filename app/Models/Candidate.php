@@ -26,13 +26,6 @@ class Candidate extends Model
         'wifi_count',
     ];
 
-    public const variables = [
-        'jss_users',
-        'wifi_count',
-        'population_density',
-        'self_funding',
-    ];
-
     /**
      * Get the attributes that should be cast.
      *
