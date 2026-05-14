@@ -56,7 +56,7 @@
           'menus' => [
               [
                   'type' => 'link',
-                  'href' => '#',
+                  'href' => route('metrics.index'),
                   'active' => request()->routeIs('metrics.*') && !request()->routeIs('metrics.create'),
                   'name' => 'Metric List',
                   'icon' => 'bar-chart-3',
@@ -64,7 +64,7 @@
               ],
               [
                   'type' => 'link',
-                  'href' => '#',
+                  'href' => route('metrics.create'),
                   'active' => request()->routeIs('metrics.create'),
                   'name' => 'Create Metric',
                   'icon' => 'plus',

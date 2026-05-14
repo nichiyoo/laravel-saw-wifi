@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\MetricController;
 use App\Http\Controllers\DashboardController;
 
 Route::middleware('auth')
@@ -28,6 +29,9 @@ Route::middleware('auth')
 
         Route::resource('candidates', CandidateController::class)->only('index');
         Route::middleware('role:admin')->resource('candidates', CandidateController::class)->except('index');
+
+        Route::resource('metrics', MetricController::class)->only('index');
+        Route::middleware('role:admin')->resource('metrics', MetricController::class)->except('index');
     });
 
 

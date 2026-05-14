@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Enums\MetricType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 
-class Candidate extends Model
+class Metric extends Model
 {
     use HasUlids;
+
     protected $keyType = 'string';
     public $incrementing = false;
 
@@ -17,20 +19,10 @@ class Candidate extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'bps_code',
-        'kemendagri_code',
-        'jss_users',
-        'kemantren',
-        'population_density',
-        'self_funding',
-        'wifi_count',
-    ];
-
-    public const variables = [
-        'jss_users',
-        'wifi_count',
-        'population_density',
-        'self_funding',
+        'variable',
+        'description',
+        'type',
+        'weight',
     ];
 
     /**
@@ -41,10 +33,8 @@ class Candidate extends Model
     protected function casts(): array
     {
         return [
-            'jss_users' => 'integer',
-            'wifi_count' => 'integer',
-            'self_funding' => 'integer',
-            'population_density' => 'integer',
+            'type' => MetricType::class,
+            'weight' => 'decimal:2',
         ];
     }
 }
