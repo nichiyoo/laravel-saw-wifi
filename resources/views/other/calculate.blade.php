@@ -55,7 +55,11 @@
         @forelse ($ranked as $item)
           <tr>
             <td class="w-10">
-              <span class="flex items-center justify-center rounded-full size-7 {{ $item->rank <= 3 ? 'bg-primary-100 text-primary-700 font-bold' : 'bg-base-100 text-base-500' }}">
+              <span @class([
+                  'flex items-center justify-center rounded-full size-7',
+                  'bg-primary-100 text-primary-700 font-semibold' => $item->rank <= 3,
+                  'bg-base-100 text-base-500' => $item->rank > 3,
+              ])>
                 {{ $item->rank }}
               </span>
             </td>
@@ -98,9 +102,9 @@
           <tr>
             <td>{{ $criterion->variable->label() }}</td>
             <td>
-              <span class="px-2 py-1 text-xs font-medium rounded-full {{ $criterion->type->style() }}">
+              <x-ui.badge class="{{ $criterion->type->style() }}">
                 {{ $criterion->type->label() }}
-              </span>
+              </x-ui.badge>
             </td>
             <td>{{ $criterion->weight }}%</td>
           </tr>

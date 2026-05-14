@@ -12,7 +12,7 @@
 
     @include('dashboard.candidates.form', [
         'candidate' => $candidate,
-        'readonly' => true,
+        'disabled' => true,
     ])
 
     <x-slot:footer class="justify-end">

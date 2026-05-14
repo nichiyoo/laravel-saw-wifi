@@ -6,7 +6,7 @@
 
 @php
   $props = $attributes->merge([
-      'class' => 'flex items-center',
+      'class' => 'ml-3 flex items-center',
   ]);
 @endphp
 
@@ -17,7 +17,6 @@
       <x-ui.avatar name="{{ $name }}" alt="{{ $name }}" class="border-2 border-white" />
     </div>
   @endforeach
-
   @if ($count > $max)
     <span class="ml-2 font-medium text-base-500">+ {{ $count - $max }}</span>
   @endif

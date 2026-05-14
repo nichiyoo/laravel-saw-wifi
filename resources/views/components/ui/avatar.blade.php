@@ -9,7 +9,7 @@
   $props = $attributes->class(['rounded-full overflow-hidden flex-none'])->merge([
       'alt' => $alt,
       'src' => $avatar,
-      'class' => 'size-9',
+      'class' => 'size-10',
       'data-tooltip-target' => $id,
       'data-tooltip-placement' => 'top',
   ]);

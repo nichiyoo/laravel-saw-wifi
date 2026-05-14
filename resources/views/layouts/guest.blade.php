@@ -10,18 +10,17 @@
 <body class="font-sans antialiased">
   <div class="grid lg:grid-cols-2 xl:grid-cols-3">
     <div class="relative items-center hidden xl:col-span-2 lg:grid">
-      <img src="{{ asset('images/auth.jpg') }}" alt="Backdrop" class="absolute inset-0 w-full h-screen object-cover">
+      <img src="{{ asset('images/auth.jpg') }}" alt="Backdrop" class="absolute inset-0 object-cover w-full h-screen">
       <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
 
       <div class="container relative flex flex-col w-full max-w-4xl gap-2 mx-auto text-white">
-        <h1 class="text-6xl font-bold">{{ config('app.name', 'Laravel') }}</h1>
-        <span class="text-lg">{{ config('app.tagline', 'Application tagline') }}</span>
+        <h1 class="text-6xl font-bold">{{ config('seo.title') }}</h1>
+        <span class="text-lg">{{ config('app.tagline') }}</span>
         <p class="text-base-200">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, voluptatem nemo? Amet expedita a
-          voluptatibus quod fugiat quas culpa vel.
+          {{ config('seo.description') }}
         </p>
         <div class="flex items-center gap-2">
-          <x-avatar-list :names="$names" class="size-12 mr-8" />
+          <x-avatar-list :names="$names" class="mr-10 size-12" />
           <div class="flex items-center">
             <i data-lucide="star" class="fill-amber-500 text-amber-500 size-6"></i>
             <i data-lucide="star" class="fill-amber-500 text-amber-500 size-6"></i>

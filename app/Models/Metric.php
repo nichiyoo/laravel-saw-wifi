@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 class Metric extends Model
 {
     use HasUlids;
-
     protected $keyType = 'string';
     public $incrementing = false;
 

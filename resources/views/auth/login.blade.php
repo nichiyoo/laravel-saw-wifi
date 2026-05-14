@@ -34,8 +34,11 @@
       <i data-lucide="arrow-up-right" class="size-5"></i>
     </x-ui.button>
 
-    <p class="text-center">
-      Cant access your account? <a href="{{ route('password.request') }}" class="text-primary-500">Reset Password</a>
-    </p>
+
+    @registerable
+      <p class="text-center">
+        Don't have an account? <a href="{{ route('register') }}" class="text-primary-500">Register</a>
+      </p>
+    @endregisterable
   </form>
 </x-guest-layout>

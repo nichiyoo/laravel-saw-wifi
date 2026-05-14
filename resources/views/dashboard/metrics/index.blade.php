@@ -64,9 +64,9 @@
           </td>
           <td>{{ $metric->description ?? '-' }}</td>
           <td>
-            <span class="px-2 py-1 text-xs font-medium rounded-full {{ $metric->type->style() }}">
+            <x-ui.badge class="{{ $metric->type->style() }}">
               {{ $metric->type->label() }}
-            </span>
+            </x-ui.badge>
           </td>
           <td>{{ $metric->weight }}</td>
           <td>

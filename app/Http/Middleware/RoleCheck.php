@@ -18,7 +18,7 @@ class RoleCheck
     public function handle(Request $request, Closure $next, mixed ...$roles): Response
     {
         $user = Auth::user();
-        if (!in_array($user->role->value, $roles)) abort(403, 'Unauthorized action.');
+        if (!in_array($user->role->value, $roles)) return redirect()->route('dashboard');
         return $next($request);
     }
 }

@@ -55,6 +55,7 @@
     </div>
   </x-ui.card>
 
+
   <x-ui.table>
     <x-slot:title>
       <i data-lucide="table" class="size-5 text-primary-500"></i>
@@ -69,30 +70,18 @@
     </x-slot:head>
 
     <x-slot:body>
-      <tr>
-        <td>C1</td>
-        <td>Population density (jiwa/km&sup2;)</td>
-        <td><span class="px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">Benefit</span></td>
-        <td>15%</td>
-      </tr>
-      <tr>
-        <td>C2</td>
-        <td>Number of JSS Wi-Fi users</td>
-        <td><span class="px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full">Benefit</span></td>
-        <td>25%</td>
-      </tr>
-      <tr>
-        <td>C3</td>
-        <td>Number of active JSS Wi-Fi access points</td>
-        <td><span class="px-2 py-1 text-xs font-medium text-yellow-700 bg-yellow-100 rounded-full">Cost</span></td>
-        <td>35%</td>
-      </tr>
-      <tr>
-        <td>C4</td>
-        <td>Community self-funding (swadaya)</td>
-        <td><span class="px-2 py-1 text-xs font-medium text-yellow-700 bg-yellow-100 rounded-full">Cost</span></td>
-        <td>25%</td>
-      </tr>
+      @foreach ($metrics as $metric)
+        <tr>
+          <td>C{{ $loop->iteration }}</td>
+          <td>{{ $metric->variable->label() }}</td>
+          <td>
+            <x-ui.badge class="{{ $metric->type->style() }}">
+              {{ $metric->type->label() }}
+            </x-ui.badge>
+          </td>
+          <td>{{ $metric->weight * 100 }}%</td>
+        </tr>
+      @endforeach
     </x-slot:body>
 
     <x-slot:footer>
@@ -126,13 +115,13 @@
     </x-slot:header>
 
     <div class="flex flex-wrap gap-3">
-      <a href="{{ route('dashboard.download-dataset') }}">
+      <a href="{{ route('dashboard.dataset') }}">
         <x-ui.button>
           <i data-lucide="file-text" class="size-5"></i>
           <span>Download Dataset (CSV)</span>
         </x-ui.button>
       </a>
-      <a href="{{ route('dashboard.download-paper') }}">
+      <a href="{{ route('dashboard.journal') }}">
         <x-ui.button variant="outline">
           <i data-lucide="file-text" class="size-5"></i>
           <span>Download Paper (PDF)</span>

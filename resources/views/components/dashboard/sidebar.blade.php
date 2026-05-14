@@ -132,11 +132,13 @@
 
   <div class="absolute bottom-0 left-0 z-20 w-full bg-white border-t border-base-200">
     <div class="items-center hidden h-16 gap-2 px-6 item-center lg:flex">
-      <a href="{{ route('dashboard.settings') }}">
-        <x-ui.button size="icon" variant="ghost" tooltip="Settings page" class="rounded-full size-8">
-          <i data-lucide="settings" class="size-5"></i>
-        </x-ui.button>
-      </a>
+      @can('viewAny', App\Models\Setting::class)
+        <a href="{{ route('settings.index') }}">
+          <x-ui.button size="icon" variant="ghost" tooltip="Settings page" class="rounded-full size-8">
+            <i data-lucide="settings" class="size-5"></i>
+          </x-ui.button>
+        </a>
+      @endcan
 
       <a href="{{ route('dashboard.help') }}">
         <x-ui.button size="icon" variant="ghost" tooltip="Help page" class="rounded-full size-8">

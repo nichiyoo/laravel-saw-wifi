@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Setting;
+use App\Policies\SettingPolicy;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
@@ -23,5 +26,13 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::preventLazyLoading();
         Blade::if('development', fn() => app()->environment('local'));
+        Gate::policy(Setting::class, SettingPolicy::class);
+
+        Blade::if('registerable', function () {
+            $filepath = storage_path('app/settings.json');
+            $content = file_get_contents($filepath);
+            $settings = json_decode($content, true);
+            return (bool) $settings['registration_enabled'];
+        });
     }
 }

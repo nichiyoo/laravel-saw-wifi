@@ -7,16 +7,19 @@
           'name' => 'Profile',
           'url' => route('profile.show'),
           'icon' => 'user2',
+          'show' => true,
       ],
       [
           'name' => 'Settings',
-          'url' => route('dashboard.settings'),
+          'url' => route('settings.index'),
           'icon' => 'settings',
+          'show' => Gate::allows('viewAny', App\Models\Setting::class),
       ],
       [
           'name' => 'Help',
           'url' => route('dashboard.help'),
           'icon' => 'life-buoy',
+          'show' => true,
       ],
   ]);
 
@@ -43,12 +46,14 @@
 
   <ul class="text-sm list-none">
     @foreach ($menus as $menu)
-      <li>
-        <a href="{{ $menu->url }}" class="flex items-center gap-2 px-4 py-2 hover:bg-base-100">
-          <i data-lucide="{{ $menu->icon }}" class="size-4"></i>
-          {{ $menu->name }}
-        </a>
-      </li>
+      @if ($menu->show)
+        <li>
+          <a href="{{ $menu->url }}" class="flex items-center gap-2 px-4 py-2 hover:bg-base-100">
+            <i data-lucide="{{ $menu->icon }}" class="size-4"></i>
+            {{ $menu->name }}
+          </a>
+        </li>
+      @endif
     @endforeach
 
     @development

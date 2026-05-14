@@ -12,7 +12,7 @@
 
     @include('dashboard.metrics.form', [
         'metric' => $metric,
-        'readonly' => true,
+        'disabled' => true,
     ])
 
     <x-slot:footer class="justify-end">

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Enums\RoleType;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

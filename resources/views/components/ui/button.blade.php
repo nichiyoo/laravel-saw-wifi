@@ -12,7 +12,7 @@
           'size-icon' => $size == 'icon',
           'px-6 p-3' => $size == 'default',
           'flex-none flex items-center justify-center gap-2',
-          'disabled:opacity-70 disabled:cursor-not-allowed' => $disabled,
+          'disabled:opacity-70 disabled:cursor-default' => $disabled,
           'border-transparent text-white bg-primary-500 both:bg-primary-600' => $variant == 'primary',
           'border-transparent text-base-900 bg-base-200 both:bg-base-300' => $variant == 'secondary',
           'border-transparent text-white bg-red-500 both:bg-red-600' => $variant == 'destructive',

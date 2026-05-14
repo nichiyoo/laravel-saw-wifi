@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\Enums\RoleType;
-use App\Models\Metric;
 use App\Models\User;
+use App\Models\Metric;
+use App\Enums\RoleType;
 
 class MetricPolicy
 {

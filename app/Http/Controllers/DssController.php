@@ -24,7 +24,7 @@ class DssController extends Controller
         $criteria = $metrics->map(fn($metric) => new CriterionData(
             key: $metric->variable->value,
             type: $metric->type,
-            weight: (float) $metric->weight / 100,
+            weight: (float) $metric->weight,
         ))->all();
 
         $candidateData = $candidates->map(fn($candidate) => new CandidateData(
