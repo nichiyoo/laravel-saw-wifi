@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         \Repo\SawEngine\SawServiceProvider::class,
     ])
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->trustProxies(at: '*');
         $middleware->alias([
             'role' => RoleCheck::class,
             'env' => EnvirontmentCheck::class,
