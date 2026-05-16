@@ -7,7 +7,7 @@ return [
     'general' => [
         'title' => 'Pengaturan Umum',
         'registration' => 'Pendaftaran Pengguna',
-        'registration_desc' => 'Izinkan pengguna baru untuk membuat akun',
+        'registration_desc' => 'Izinkan pengguna baru membuat akun',
     ],
 
     'seo' => [
@@ -18,7 +18,7 @@ return [
         'keywords' => 'Kata Kunci',
         'site_title_placeholder' => 'Masukkan judul situs',
         'author_placeholder' => 'Masukkan nama penulis',
-        'description_placeholder' => 'Masukkan deskripsi meta',
+        'description_placeholder' => 'Masukkan meta deskripsi',
         'keywords_placeholder' => 'Kata kunci dipisahkan koma',
     ],
 

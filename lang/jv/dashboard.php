@@ -3,26 +3,26 @@
 return [
     'title' => 'Dasbor',
     'language' => [
-        'title' => 'Ubah bahasa',
-        'desc' => 'Pilih bahasa yang Anda inginkan',
+        'title' => 'Ganti basa',
+        'desc' => 'Pilih basa sing panjenengan penginake',
     ],
 
     'notifications' => [
-        'tooltip' => 'Lihat notifikasi',
+        'tooltip' => 'Deleng notifikasi',
         'title' => 'Notifikasi',
-        'unread' => 'Anda tidak memiliki notifikasi yang belum dibaca.',
-        'empty' => 'Tidak ada notifikasi',
+        'unread' => 'Panjenengan ora duwe notifikasi sing durung diwaca.',
+        'empty' => 'Ora ana notifikasi',
     ],
 
     'heading' => [
-        'welcome' => 'Selamat datang kembali, :name',
+        'welcome' => 'Sugeng rawuh malih, :name',
     ],
 
     'widgets' => [
         'kemantren' => 'Kemantren',
-        'kemantren_desc' => 'Total kecamatan di Yogyakarta',
-        'jss_users' => 'Pengguna JSS',
-        'jss_users_desc' => 'Total pengguna Wi-Fi JSS',
+        'kemantren_desc' => 'Total kecamatan ing Yogyakarta',
+        'jss_users' => 'Pangguna JSS',
+        'jss_users_desc' => 'Total pangguna Wi-Fi JSS',
         'wifi_points' => 'Titik WiFi',
         'wifi_points_desc' => 'Total titik akses aktif',
         'self_funding' => 'Swadaya',
@@ -31,7 +31,7 @@ return [
 
     'chart' => [
         'title' => 'Perbandingan Kemantren',
-        'jss_users' => 'Pengguna JSS',
+        'jss_users' => 'Pangguna JSS',
         'wifi_points' => 'Titik WiFi',
     ],
 ];

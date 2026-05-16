@@ -14,9 +14,9 @@ return [
     'settings_stored' => 'Pengaturan berhasil disimpan.',
 
     'profile_updated' => 'Informasi profil berhasil disimpan.',
-    'account_deleted' => 'Akun anda telah dihapus.',
+    'account_deleted' => 'Akun Anda telah dihapus.',
 
-    'db_migrated' => 'Database berhasil dimigrasi dan diisi.',
+    'db_migrated' => 'Database berhasil dimigrasi dan disemai.',
     'db_reset' => 'Database berhasil dimigrasi.',
-    'impersonated' => 'Berlogin sebagai :role',
+    'impersonated' => 'Masuk sebagai :role',
 ];

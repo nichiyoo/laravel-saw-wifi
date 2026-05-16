@@ -4,7 +4,7 @@
     <x-slot:description>{{ trans('profile.edit.description') }}</x-slot:description>
   </x-dashboard.heading>
 
-  <div class="grid items-start grid-cols-2 gap-6">
+  <div class="grid items-start gap-6 xl:grid-cols-2">
     <x-ui.card as="form" method="post" action="{{ route('profile.update') }}">
       <x-slot:header>
         <h5>{{ trans('profile.edit.profile.title') }}</h5>

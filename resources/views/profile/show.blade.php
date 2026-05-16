@@ -15,7 +15,7 @@
         <h5>{{ trans('profile.show.card_title') }}</h5>
       </x-slot:header>
 
-      <div class="grid-cols-2 form">
+      <div class="xl:grid-cols-2 form">
         <div class="field">
           <x-ui.label for="name" :value="trans('profile.show.name')" />
           <x-ui.input readonly name="name" type="text" value="{{ $user->name }}">

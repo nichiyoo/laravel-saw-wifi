@@ -6,7 +6,7 @@ return [
         'description' => 'Kelola daftar wilayah kandidat di :app',
         'table_title' => 'Tabel Kandidat',
         'search' => 'Cari berdasarkan kemantren',
-        'reset' => 'Atur Ulang',
+        'reset' => 'Reset',
         'add' => 'Kandidat',
         'no' => 'No',
         'kemantren' => 'Kemantren',
@@ -15,9 +15,9 @@ return [
         'jss_users' => 'Pengguna JSS',
         'wifi_count' => 'Jumlah WiFi',
         'population_density' => 'Kepadatan Penduduk',
-        'self_funding' => 'Dana Mandiri',
+        'self_funding' => 'Swadaya',
         'actions' => 'Aksi',
-        'edit' => 'Ubah',
+        'edit' => 'Edit',
     ],
 
     'show' => [
@@ -36,7 +36,7 @@ return [
     ],
 
     'edit' => [
-        'title' => 'Ubah Kandidat',
+        'title' => 'Edit Kandidat',
         'description' => 'Perbarui informasi wilayah kandidat di :app',
         'card_title' => 'Informasi Kandidat',
         'cancel' => 'Batal',
@@ -56,7 +56,7 @@ return [
         'wifi_count_placeholder' => 'Masukkan jumlah WiFi',
         'population_density' => 'Kepadatan Penduduk',
         'population_density_placeholder' => 'Masukkan kepadatan penduduk',
-        'self_funding' => 'Dana Mandiri',
-        'self_funding_placeholder' => 'Masukkan jumlah dana mandiri',
+        'self_funding' => 'Swadaya',
+        'self_funding_placeholder' => 'Masukkan jumlah swadaya',
     ],
 ];

@@ -1,29 +1,19 @@
 <?php
 
 return [
-    /*
-    |--------------------------------------------------------------------------
-    | Baris-baris bahasa untuk autentifikasi
-    |--------------------------------------------------------------------------
-    |
-    | Baris bahasa berikut digunakan selama proses autentifikasi untuk beberapa pesan
-    | yang perlu kita tampilkan ke pengguna. Anda bebas untuk memodifikasi
-    | baris bahasa sesuai dengan keperluan aplikasi anda.
-    |
-    */
-    'failed' => 'Email atau password salah, silahkan coba lagi.',
-    'password' => 'Kata sandi yang anda masukkan salah.',
-    'throttle' => 'Terlalu banyak usaha masuk. Silahkan coba lagi dalam :seconds detik.',
+    'failed' => 'Kredensial ini tidak cocok dengan data kami.',
+    'password' => 'Kata sandi yang diberikan salah.',
+    'throttle' => 'Terlalu banyak percobaan masuk. Silakan coba lagi dalam :seconds detik.',
 
     'login' => [
         'title' => 'Masuk',
-        'desc' => 'Selamat datang kembali! Silahkan masuk dengan detail anda',
+        'desc' => 'Selamat datang kembali! Silakan masukkan detail Anda',
     ],
 
     'email' => 'Email',
-    'email_placeholder' => 'Masukkan email anda',
+    'email_placeholder' => 'Masukkan email Anda',
     'password' => 'Kata Sandi',
-    'password_placeholder' => 'Masukkan kata sandi anda',
+    'password_placeholder' => 'Masukkan kata sandi Anda',
     'login_button' => 'Masuk',
     'register_link' => 'Belum punya akun? <a href=":url" class="text-primary-500">Daftar</a>',
 
@@ -32,7 +22,7 @@ return [
         'desc' => 'Buat akun baru untuk memulai.',
     ],
     'name' => 'Nama',
-    'name_placeholder' => 'Masukkan nama anda',
+    'name_placeholder' => 'Masukkan nama Anda',
     'confirm_password' => 'Konfirmasi Kata Sandi',
     'register_button' => 'Daftar',
     'login_link' => 'Sudah punya akun? <a href=":url" class="text-primary-500">Masuk</a>',
@@ -40,28 +30,28 @@ return [
 
     'forgot_password' => [
         'title' => 'Lupa Kata Sandi',
-        'desc' => 'Lupa kata sandi? Tidak masalah. Beritahu kami alamat email anda dan kami akan mengirimkan tautan pengaturan ulang kata sandi yang memungkinkan anda memilih yang baru.',
+        'desc' => 'Lupa kata sandi Anda? Tidak masalah. Cukup beri tahu kami alamat email Anda dan kami akan mengirimkan tautan reset kata sandi yang memungkinkan Anda memilih yang baru.',
         'button' => 'Kirim Tautan Reset Kata Sandi',
     ],
 
     'reset_password' => [
-        'title' => 'Atur Ulang Kata Sandi',
-        'desc' => 'Masukkan kata sandi baru anda di bawah.',
-        'button' => 'Atur Ulang Kata Sandi',
+        'title' => 'Reset Kata Sandi',
+        'desc' => 'Masukkan kata sandi baru Anda di bawah ini.',
+        'button' => 'Reset Kata Sandi',
     ],
 
     'confirm_password' => [
         'title' => 'Konfirmasi Kata Sandi',
-        'desc' => 'Ini adalah area aman dari aplikasi. Harap konfirmasi kata sandi anda sebelum melanjutkan.',
+        'desc' => 'Ini adalah area aman dari aplikasi. Harap konfirmasi kata sandi Anda sebelum melanjutkan.',
         'button' => 'Konfirmasi',
     ],
 
-    'reviews' => '4,9rb Ulasan',
+    'reviews' => '4,9 ribu Ulasan',
 
     'verify_email' => [
         'title' => 'Verifikasi Email',
-        'desc' => 'Terima kasih telah mendaftar! Sebelum memulai, bisakah anda memverifikasi alamat email dengan mengklik tautan yang baru saja kami kirimkan? Jika tidak menerima email, kami akan dengan senang hati mengirimkan yang lain.',
-        'new_link' => 'Tautan verifikasi baru telah dikirim ke alamat email yang anda berikan saat pendaftaran.',
+        'desc' => 'Terima kasih telah mendaftar! Sebelum memulai, bisakah Anda memverifikasi alamat email Anda dengan mengklik tautan yang baru saja kami kirimkan? Jika Anda tidak menerima email, kami akan dengan senang hati mengirimkan yang lain.',
+        'new_link' => 'Tautan verifikasi baru telah dikirim ke alamat email yang Anda berikan saat pendaftaran.',
         'button' => 'Kirim Ulang Email Verifikasi',
         'logout' => 'Keluar',
     ],

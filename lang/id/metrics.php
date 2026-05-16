@@ -6,7 +6,7 @@ return [
         'description' => 'Kelola daftar kriteria metrik di :app',
         'table_title' => 'Tabel Metrik',
         'search' => 'Cari berdasarkan variabel',
-        'reset' => 'Atur Ulang',
+        'reset' => 'Reset',
         'add' => 'Metrik',
         'no' => 'No',
         'variable' => 'Variabel',
@@ -14,7 +14,7 @@ return [
         'type' => 'Tipe',
         'weight' => 'Bobot',
         'actions' => 'Aksi',
-        'edit' => 'Ubah',
+        'edit' => 'Edit',
     ],
 
     'show' => [
@@ -33,7 +33,7 @@ return [
     ],
 
     'edit' => [
-        'title' => 'Ubah Metrik',
+        'title' => 'Edit Metrik',
         'description' => 'Perbarui informasi kriteria metrik di :app',
         'card_title' => 'Informasi Metrik',
         'cancel' => 'Batal',

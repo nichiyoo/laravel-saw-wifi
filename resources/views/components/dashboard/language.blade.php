@@ -23,7 +23,7 @@
     @foreach ($locales as $locale)
       <li>
         <a href="{{ Route::localizedUrl($locale) }}" class="flex items-center gap-2 px-4 py-2 hover:bg-base-100">
-          <span class="{{ Language::tryFrom($locale)->icon() }} size-5 rounded-full bg-cover"></span>
+          <span class="{{ Language::tryFrom($locale)->icon() }} size-5 rounded-full bg-cover drop-shadow-sm"></span>
           {{ Language::tryFrom($locale)->label() }}
         </a>
       </li>

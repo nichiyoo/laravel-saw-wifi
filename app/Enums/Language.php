@@ -3,11 +3,15 @@
 namespace App\Enums;
 
 use App\Enums\Contracts\HasIcon;
+use App\Enums\Contracts\HasLabel;
 
-enum Language: string implements HasIcon
+enum Language: string implements HasLabel, HasIcon
 {
     case ENGLISH = 'en';
+    case JAPANESE = 'ja';
     case INDONESIA = 'id';
+    case JAVANESE = 'jv';
+    case SUNDANESE = 'su';
 
     /**
      * Get all enum values as an array.
@@ -20,17 +24,6 @@ enum Language: string implements HasIcon
     }
 
     /**
-     * Get the patterns for the language.
-     *
-     * @return string
-     */
-    public static function patterns(): string
-    {
-        $languages = self::values();
-        return implode('|', $languages);
-    }
-
-    /**
      * Get the human-readable label for the language.
      *
      * @return string
@@ -39,7 +32,10 @@ enum Language: string implements HasIcon
     {
         return match ($this) {
             self::ENGLISH => 'English',
-            self::INDONESIA => 'Indonesia',
+            self::JAPANESE => '日本語',
+            self::INDONESIA => 'Bahasa Indonesia',
+            self::JAVANESE => 'Bahasa Jawa',
+            self::SUNDANESE => 'Basa Sunda',
         };
     }
 
@@ -52,7 +48,10 @@ enum Language: string implements HasIcon
     {
         return match ($this) {
             self::ENGLISH => 'fi fi-gb',
+            self::JAPANESE => 'fi fi-jp',
             self::INDONESIA => 'fi fi-id',
+            self::JAVANESE => 'fi fi-id',
+            self::SUNDANESE => 'fi fi-id',
         };
     }
 }
