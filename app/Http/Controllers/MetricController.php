@@ -67,7 +67,7 @@ class MetricController extends Controller
 
         return redirect()
             ->route('metrics.index')
-            ->with('success', 'Metric created successfully.');
+            ->with('success', trans('messages.metric_created'));
     }
 
     /**
@@ -107,7 +107,7 @@ class MetricController extends Controller
 
         return redirect()
             ->route('metrics.index')
-            ->with('success', 'Metric updated successfully.');
+            ->with('success', trans('messages.metric_updated'));
     }
 
     /**
@@ -119,6 +119,6 @@ class MetricController extends Controller
 
         return redirect()
             ->route('metrics.index')
-            ->with('success', 'Metric deleted successfully.');
+            ->with('success', trans('messages.metric_deleted'));
     }
 }

@@ -5,9 +5,9 @@
         <x-ui.button class="flex rounded-full md:hidden" variant="ghost" data-drawer-target="sidebar"
           data-drawer-toggle="sidebar" aria-controls="sidebar" size="icon">
           <i data-lucide="menu" class="size-5"></i>
-          <span class="sr-only">Toggle sidebar</span>
+          <span class="sr-only">{{ trans('nav.toggle_sidebar') }}</span>
         </x-ui.button>
-        <span>Dashboard</span>
+        <span>{{ trans('dashboard.title') }}</span>
       </div>
 
       <div class="flex items-center gap-2">

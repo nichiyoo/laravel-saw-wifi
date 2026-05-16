@@ -4,19 +4,19 @@
 
 <x-dashboard-layout>
   <x-dashboard.heading>
-    <x-slot:title>Metrics List</x-slot:title>
-    <x-slot:description>Manage list of metrics criteria in {{ config('app.name', 'Laravel') }}</x-slot:description>
+    <x-slot:title>{{ trans('metrics.index.title') }}</x-slot:title>
+    <x-slot:description>{{ trans('metrics.index.description', ['app' => config('app.name')]) }}</x-slot:description>
   </x-dashboard.heading>
 
   <x-ui.table>
     <x-slot:title>
       <i data-lucide="bar-chart-3" class="size-5 text-primary-500"></i>
-      <h4>Metrics Table</h4>
+      <h4>{{ trans('metrics.index.table_title') }}</h4>
     </x-slot:title>
 
     <x-slot:action class="justify-between">
       <form action="{{ route('metrics.index') }}" method="GET" class="flex flex-col gap-2 xl:flex-row xl:items-center">
-        <x-ui.input name="search" value="{{ request()->get('search') }}" placeholder="Search by variable">
+        <x-ui.input name="search" value="{{ request()->get('search') }}" :placeholder="trans('metrics.index.search')">
           <x-slot:left>
             <i data-lucide="search" class="text-base-500 size-5"></i>
           </x-slot:left>
@@ -28,7 +28,7 @@
           <a href="{{ route('metrics.index') }}">
             <x-ui.button variant="outline">
               <i data-lucide="x" class="size-5"></i>
-              <span>Reset</span>
+              <span>{{ trans('metrics.index.reset') }}</span>
             </x-ui.button>
           </a>
         @endif
@@ -37,7 +37,7 @@
           <a href="{{ route('metrics.create') }}">
             <x-ui.button>
               <i data-lucide="plus" class="size-5"></i>
-              <span>Metric</span>
+              <span>{{ trans('metrics.index.add') }}</span>
             </x-ui.button>
           </a>
         @endcan
@@ -45,12 +45,12 @@
     </x-slot:action>
 
     <x-slot:head>
-      <th>No</th>
-      <th>Variable</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Weight</th>
-      <th>Actions</th>
+      <th>{{ trans('metrics.index.no') }}</th>
+      <th>{{ trans('metrics.index.variable') }}</th>
+      <th>{{ trans('metrics.index.description') }}</th>
+      <th>{{ trans('metrics.index.type') }}</th>
+      <th>{{ trans('metrics.index.weight') }}</th>
+      <th>{{ trans('metrics.index.actions') }}</th>
     </x-slot:head>
 
     <x-slot:body>
@@ -73,7 +73,7 @@
             <div class="flex items-center gap-4">
               @can('update', $metric)
                 <a href="{{ route('metrics.edit', $metric) }}" class="text-primary-500">
-                  Edit
+                  {{ trans('metrics.index.edit') }}
                 </a>
               @endcan
               @can('delete', $metric)

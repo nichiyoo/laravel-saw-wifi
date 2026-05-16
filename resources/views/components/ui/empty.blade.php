@@ -13,7 +13,7 @@
   <td {{ $props }}>
     <div class="flex items-center justify-center gap-2">
       <i data-lucide="info" class="size-5"></i>
-      <span>No data found</span>
+      <span>{{ trans('messages.no_data') }}</span>
     </div>
   </td>
 </tr>

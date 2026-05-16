@@ -5,50 +5,40 @@
 
 <x-dashboard-layout>
   <x-dashboard.heading>
-    <x-slot:title>DSS Calculation</x-slot:title>
-    <x-slot:description>SAW ranking of kemantren based on weighted criteria</x-slot:description>
+    <x-slot:title>{{ trans('calculate.title') }}</x-slot:title>
+    <x-slot:description>{{ trans('calculate.description') }}</x-slot:description>
   </x-dashboard.heading>
 
   <div class="grid gap-6">
     <x-ui.card>
       <x-slot:header>
         <i data-lucide="lightbulb" class="size-5 text-primary-500"></i>
-        <h5>What This Means</h5>
+        <h5>{{ trans('calculate.explanation.title') }}</h5>
       </x-slot:header>
 
       <div class="grid gap-3 text-sm leading-relaxed text-base-600">
-        <p>
-          <strong>{{ $top->candidate->kemantren }}</strong> ranked first with a score of
-          <strong>{{ number_format($top->score, 4) }}</strong>, making it the highest-priority kemantren for new JSS
-          free Wi-Fi access point placement based on the current criteria and weights.
-        </p>
-        <p>
-          A total of <strong>{{ $total }} kemantren</strong> were evaluated using the Simple Additive Weighting
-          (SAW) method. Benefit criteria (green) reward higher raw values more JSS users or higher population
-          density increases the score. Cost criteria (yellow) reward lower raw values fewer existing access
-          points or less community self-funding indicates greater need.
-        </p>
-        <p>
-          Weights can be adjusted at any time from the <a href="{{ route('metrics.index') }}"
-            class="text-primary-500 hover:underline">Metrics page</a> to reflect current policy priorities, and the
-          calculation can be re-run instantly.
-        </p>
+        <p>{!! trans('calculate.explanation.ranked_first', [
+            'kemantren' => $top->candidate->kemantren,
+            'score' => number_format($top->score, 4),
+        ]) !!}</p>
+        <p>{!! trans('calculate.explanation.evaluated', ['count' => $total]) !!}</p>
+        <p>{!! trans('calculate.explanation.weights', ['url' => route('metrics.index')]) !!}</p>
       </div>
     </x-ui.card>
 
     <x-ui.table>
       <x-slot:title>
         <i data-lucide="trophy" class="size-5 text-primary-500"></i>
-        <h4>Ranking Results</h4>
+        <h4>{{ trans('calculate.ranking.title') }}</h4>
       </x-slot:title>
 
       <x-slot:head>
-        <th>Rank</th>
-        <th>Kemantren</th>
+        <th>{{ trans('calculate.ranking.rank') }}</th>
+        <th>{{ trans('calculate.ranking.kemantren') }}</th>
         @foreach ($criteria as $criterion)
           <th>{{ $criterion->variable->label() }}</th>
         @endforeach
-        <th>Score</th>
+        <th>{{ trans('calculate.ranking.score') }}</th>
       </x-slot:head>
 
       <x-slot:body>
@@ -88,13 +78,13 @@
     <x-ui.table>
       <x-slot:title>
         <i data-lucide="calculator" class="size-5 text-primary-500"></i>
-        <h4>Used Criteria</h4>
+        <h4>{{ trans('calculate.criteria.title') }}</h4>
       </x-slot:title>
 
       <x-slot:head>
-        <th>Variable</th>
-        <th>Type</th>
-        <th>Weight</th>
+        <th>{{ trans('calculate.criteria.variable') }}</th>
+        <th>{{ trans('calculate.criteria.type') }}</th>
+        <th>{{ trans('calculate.criteria.weight') }}</th>
       </x-slot:head>
 
       <x-slot:body>

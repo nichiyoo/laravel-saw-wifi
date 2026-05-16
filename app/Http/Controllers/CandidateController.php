@@ -59,7 +59,7 @@ class CandidateController extends Controller
 
         return redirect()
             ->route('candidates.index')
-            ->with('success', 'Candidate created successfully.');
+            ->with('success', trans('messages.candidate_created'));
     }
 
     /**
@@ -92,7 +92,7 @@ class CandidateController extends Controller
 
         return redirect()
             ->route('candidates.index')
-            ->with('success', 'Candidate updated successfully.');
+            ->with('success', trans('messages.candidate_updated'));
     }
 
     /**
@@ -104,6 +104,6 @@ class CandidateController extends Controller
 
         return redirect()
             ->route('candidates.index')
-            ->with('success', 'Candidate deleted successfully.');
+            ->with('success', trans('messages.candidate_deleted'));
     }
 }

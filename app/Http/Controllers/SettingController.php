@@ -51,6 +51,6 @@ class SettingController extends Controller
 
         return redirect()
             ->route('settings.index')
-            ->with('success', 'Settings stored successfully.');
+            ->with('success', trans('messages.settings_stored'));
     }
 }

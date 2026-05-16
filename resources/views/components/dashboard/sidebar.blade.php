@@ -11,32 +11,32 @@
       ->merge([
           'id' => 'sidebar',
           'class' => 'w-full',
-          'aria-label' => 'Sidenav',
+          'aria-label' => trans('nav.sidebar.sidenav'),
       ]);
 
   $navigations = ArrayHelper::collection([
       [
           'id' => 'about',
-          'label' => 'About',
+          'label' => trans('nav.sidebar.about'),
           'menus' => [
               [
                   'type' => 'link',
                   'href' => route('dashboard.about'),
                   'active' => request()->routeIs('dashboard.about'),
-                  'name' => 'About This Project',
+                  'name' => trans('nav.sidebar.about_project'),
                   'icon' => 'book-open',
               ],
           ],
       ],
       [
           'id' => 'candidates',
-          'label' => 'Candidates Data',
+          'label' => trans('nav.sidebar.candidates_data'),
           'menus' => [
               [
                   'type' => 'link',
                   'href' => route('candidates.index'),
                   'active' => request()->routeIs('candidates.*') && !request()->routeIs('candidates.create'),
-                  'name' => 'Candidate List',
+                  'name' => trans('nav.sidebar.candidate_list'),
                   'icon' => 'map',
                   'show' => true,
               ],
@@ -44,7 +44,7 @@
                   'type' => 'link',
                   'href' => route('candidates.create'),
                   'active' => request()->routeIs('candidates.create'),
-                  'name' => 'Create Candidate',
+                  'name' => trans('nav.sidebar.create_candidate'),
                   'icon' => 'plus',
                   'show' => Auth::user()->role == RoleType::ADMIN,
               ],
@@ -52,13 +52,13 @@
       ],
       [
           'id' => 'metrics',
-          'label' => 'Metrics Data',
+          'label' => trans('nav.sidebar.metrics_data'),
           'menus' => [
               [
                   'type' => 'link',
                   'href' => route('metrics.index'),
                   'active' => request()->routeIs('metrics.*') && !request()->routeIs('metrics.create'),
-                  'name' => 'Metric List',
+                  'name' => trans('nav.sidebar.metric_list'),
                   'icon' => 'bar-chart-3',
                   'show' => true,
               ],
@@ -66,7 +66,7 @@
                   'type' => 'link',
                   'href' => route('metrics.create'),
                   'active' => request()->routeIs('metrics.create'),
-                  'name' => 'Create Metric',
+                  'name' => trans('nav.sidebar.create_metric'),
                   'icon' => 'plus',
                   'show' => Auth::user()->role == RoleType::ADMIN,
               ],
@@ -74,13 +74,13 @@
       ],
       [
           'id' => 'calculation',
-          'label' => 'DSS Calculation',
+          'label' => trans('nav.sidebar.dss_calculation'),
           'menus' => [
               [
                   'type' => 'link',
                   'href' => route('calculate.index'),
                   'active' => request()->routeIs('calculate.*'),
-                  'name' => 'Run Calculation',
+                  'name' => trans('nav.sidebar.run_calculation'),
                   'icon' => 'calculator',
               ],
           ],
@@ -134,17 +134,21 @@
     <div class="items-center hidden h-16 gap-2 px-6 item-center lg:flex">
       @can('viewAny', App\Models\Setting::class)
         <a href="{{ route('settings.index') }}">
-          <x-ui.button size="icon" variant="ghost" tooltip="Settings page" class="rounded-full size-8">
+          <x-ui.button size="icon" variant="ghost" tooltip="{{ trans('nav.sidebar.settings_page') }}"
+            class="rounded-full size-8">
             <i data-lucide="settings" class="size-5"></i>
           </x-ui.button>
         </a>
       @endcan
 
       <a href="{{ route('dashboard.help') }}">
-        <x-ui.button size="icon" variant="ghost" tooltip="Help page" class="rounded-full size-8">
+        <x-ui.button size="icon" variant="ghost" tooltip="{{ trans('nav.sidebar.help_page') }}"
+          class="rounded-full size-8">
           <i data-lucide="help-circle" class="size-5"></i>
         </x-ui.button>
       </a>
+
+      <x-dashboard.language />
     </div>
   </div>
 </aside>

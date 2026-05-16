@@ -18,7 +18,7 @@ Route::middleware(['auth', 'env:local'])
             $user = User::query()->first();
             Auth::loginUsingId($user->id);
 
-            return back()->with('success', 'Database migrated and seeded successfully.');
+            return back()->with('success', trans('messages.db_migrated'));
         })->name('migrate');
 
         Route::get('reset', function () {
@@ -29,7 +29,7 @@ Route::middleware(['auth', 'env:local'])
             $user = User::query()->first();
             Auth::loginUsingId($user->id);
 
-            return back()->with('success', 'Database migrated successfully.');
+            return back()->with('success', trans('messages.db_reset'));
         })->name('reset');
 
         Route::get('impersonate', function (Request $request) {
@@ -42,6 +42,8 @@ Route::middleware(['auth', 'env:local'])
                 RoleType::GUEST->value => Auth::login($guest),
             };
 
-            return back()->with('success', 'Impersonated as ' . $role);
+            return back()->with('success', trans('messages.impersonated', [
+                'role' => $role
+            ]));
         })->name('impersonate');
     });

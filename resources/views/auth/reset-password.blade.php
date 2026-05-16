@@ -1,7 +1,7 @@
 <x-guest-layout>
   <x-ui.heading>
-    <x-slot:title>Reset Password</x-slot:title>
-    <x-slot:description>Enter your new password</x-slot:description>
+    <x-slot:title>{{ trans('auth.reset_password.title') }}</x-slot:title>
+    <x-slot:description>{{ trans('auth.reset_password.desc') }}</x-slot:description>
   </x-ui.heading>
 
   <form method="POST" action="{{ route('password.update') }}" class="form">
@@ -10,9 +10,9 @@
     <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
     <div class="field">
-      <x-ui.label for="email" value="Email" />
+      <x-ui.label for="email" :value="trans('auth.email')" />
       <x-ui.input id="email" type="email" name="email" :value="old('email', $request->email)" required autofocus
-        autocomplete="username" placeholder="Enter your email">
+        autocomplete="username" :placeholder="trans('auth.email_placeholder')">
         <x-slot:left>
           <i data-lucide="mail" class="text-base-500 size-5"></i>
         </x-slot:left>
@@ -21,9 +21,9 @@
     </div>
 
     <div class="field">
-      <x-ui.label for="password" value="Password" />
+      <x-ui.label for="password" :value="trans('auth.password')" />
       <x-ui.input id="password" type="password" name="password" required autocomplete="new-password"
-        placeholder="Enter your new password">
+        :placeholder="trans('auth.password_placeholder')">
         <x-slot:left>
           <i data-lucide="lock" class="text-base-500 size-5"></i>
         </x-slot:left>
@@ -32,9 +32,9 @@
     </div>
 
     <div class="field">
-      <x-ui.label for="password_confirmation" value="Confirm Password" />
+      <x-ui.label for="password_confirmation" :value="trans('auth.confirm_password')" />
       <x-ui.input id="password_confirmation" type="password" name="password_confirmation" required
-        autocomplete="new-password" placeholder="Confirm your new password">
+        autocomplete="new-password" :placeholder="trans('auth.confirm_password')">
         <x-slot:left>
           <i data-lucide="lock" class="text-base-500 size-5"></i>
         </x-slot:left>
@@ -43,7 +43,7 @@
     </div>
 
     <x-ui.button>
-      <span>Reset Password</span>
+      <span>{{ trans('auth.reset_password.button') }}</span>
       <i data-lucide="arrow-up-right" class="size-5"></i>
     </x-ui.button>
   </form>

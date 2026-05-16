@@ -192,5 +192,30 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'Nama',
+        'email' => 'Email',
+        'password' => 'Kata Sandi',
+        'current_password' => 'Kata Sandi Saat Ini',
+        'password_confirmation' => 'Konfirmasi Kata Sandi',
+
+        'kemantren' => 'Kemantren',
+        'bps_code' => 'Kode BPS',
+        'kemendagri_code' => 'Kode Kemendagri',
+        'jss_users' => 'Pengguna JSS',
+        'wifi_count' => 'Jumlah WiFi',
+        'population_density' => 'Kepadatan Penduduk',
+        'self_funding' => 'Dana Mandiri',
+
+        'variable' => 'Variabel',
+        'description' => 'Deskripsi',
+        'type' => 'Tipe',
+        'weight' => 'Bobot',
+
+        'registration_enabled' => 'Pendaftaran Pengguna',
+        'seo_title' => 'Judul Situs',
+        'seo_description' => 'Deskripsi',
+        'seo_keywords' => 'Kata Kunci',
+        'seo_author' => 'Penulis',
+    ],
 ];

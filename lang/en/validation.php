@@ -192,5 +192,30 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'Name',
+        'email' => 'Email',
+        'password' => 'Password',
+        'current_password' => 'Current Password',
+        'password_confirmation' => 'Password Confirmation',
+
+        'kemantren' => 'Kemantren',
+        'bps_code' => 'BPS Code',
+        'kemendagri_code' => 'Kemendagri Code',
+        'jss_users' => 'JSS Users',
+        'wifi_count' => 'WiFi Count',
+        'population_density' => 'Population Density',
+        'self_funding' => 'Self Funding',
+
+        'variable' => 'Variable',
+        'description' => 'Description',
+        'type' => 'Type',
+        'weight' => 'Weight',
+
+        'registration_enabled' => 'User Registration',
+        'seo_title' => 'Site Title',
+        'seo_description' => 'Description',
+        'seo_keywords' => 'Keywords',
+        'seo_author' => 'Author',
+    ],
 ];

@@ -42,7 +42,7 @@ class ProfileController extends Controller
         Auth::user()->save();
 
         return Redirect::route('profile.show')
-            ->with('success', 'Successfully saved profile information.');
+            ->with('success', trans('messages.profile_updated'));
     }
 
     /**
@@ -62,6 +62,6 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::route('dashboard')
-            ->with('success', 'Your account has been deleted.');
+            ->with('success', trans('messages.account_deleted'));
     }
 }

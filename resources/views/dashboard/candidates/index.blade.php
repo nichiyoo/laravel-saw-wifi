@@ -1,19 +1,19 @@
 <x-dashboard-layout>
   <x-dashboard.heading>
-    <x-slot:title>Candidates List</x-slot:title>
-    <x-slot:description>Manage list of candidate regions in {{ config('app.name', 'Laravel') }}</x-slot:description>
+    <x-slot:title>{{ trans('candidates.index.title') }}</x-slot:title>
+    <x-slot:description>{{ trans('candidates.index.description', ['app' => config('app.name')]) }}</x-slot:description>
   </x-dashboard.heading>
 
   <x-ui.table>
     <x-slot:title>
       <i data-lucide="map" class="size-5 text-primary-500"></i>
-      <h4>Candidates Table</h4>
+      <h4>{{ trans('candidates.index.table_title') }}</h4>
     </x-slot:title>
 
     <x-slot:action class="justify-between">
       <form action="{{ route('candidates.index') }}" method="GET"
         class="flex flex-col gap-2 xl:flex-row xl:items-center">
-        <x-ui.input name="search" value="{{ request()->get('search') }}" placeholder="Search by kemantren">
+        <x-ui.input name="search" value="{{ request()->get('search') }}" :placeholder="trans('candidates.index.search')">
           <x-slot:left>
             <i data-lucide="search" class="text-base-500 size-5"></i>
           </x-slot:left>
@@ -25,7 +25,7 @@
           <a href="{{ route('candidates.index') }}">
             <x-ui.button variant="outline">
               <i data-lucide="x" class="size-5"></i>
-              <span>Reset</span>
+              <span>{{ trans('candidates.index.reset') }}</span>
             </x-ui.button>
           </a>
         @endif
@@ -34,7 +34,7 @@
           <a href="{{ route('candidates.create') }}">
             <x-ui.button>
               <i data-lucide="plus" class="size-5"></i>
-              <span>Candidate</span>
+              <span>{{ trans('candidates.index.add') }}</span>
             </x-ui.button>
           </a>
         @endcan
@@ -42,15 +42,15 @@
     </x-slot:action>
 
     <x-slot:head>
-      <th>No</th>
-      <th>Kemantren</th>
-      <th>BPS Code</th>
-      <th>Kemendagri Code</th>
-      <th>JSS Users</th>
-      <th>WiFi Count</th>
-      <th>Population Density</th>
-      <th>Self Funding</th>
-      <th>Actions</th>
+      <th>{{ trans('candidates.index.no') }}</th>
+      <th>{{ trans('candidates.index.kemantren') }}</th>
+      <th>{{ trans('candidates.index.bps_code') }}</th>
+      <th>{{ trans('candidates.index.kemendagri_code') }}</th>
+      <th>{{ trans('candidates.index.jss_users') }}</th>
+      <th>{{ trans('candidates.index.wifi_count') }}</th>
+      <th>{{ trans('candidates.index.population_density') }}</th>
+      <th>{{ trans('candidates.index.self_funding') }}</th>
+      <th>{{ trans('candidates.index.actions') }}</th>
     </x-slot:head>
 
     <x-slot:body>
@@ -72,7 +72,7 @@
             <div class="flex items-center gap-4">
               @can('update', $candidate)
                 <a href="{{ route('candidates.edit', $candidate) }}" class="text-primary-500">
-                  Edit
+                  {{ trans('candidates.index.edit') }}
                 </a>
               @endcan
               @can('delete', $candidate)

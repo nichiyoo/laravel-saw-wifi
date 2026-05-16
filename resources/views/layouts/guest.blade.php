@@ -28,7 +28,7 @@
             <i data-lucide="star" class="fill-amber-500 text-amber-500 size-6"></i>
           </div>
           <span class="font-medium text-white">
-            4.9k Reviews
+            {{ trans('auth.reviews') }}
           </span>
         </div>
       </div>
@@ -37,6 +37,10 @@
     <div class="relative grid items-center h-screen overflow-y-auto">
       <div class="absolute top-0 right-0 p-10">
         <x-ui.logo class="max-w-40" />
+      </div>
+
+      <div class="absolute bottom-0 right-0 p-10">
+        <x-dashboard.language />
       </div>
 
       <div class="container grid max-w-lg gap-6">

@@ -6,9 +6,9 @@
 
 <div class="xl:grid-cols-2 form">
   <div class="field">
-    <x-ui.label for="variable" value="Variable" required />
+    <x-ui.label for="variable" :value="trans('metrics.form.variable')" required />
     <x-ui.select id="variable" name="variable" required :disabled="$disabled">
-      <option value="">Select variable</option>
+      <option value="">{{ trans('metrics.form.variable_placeholder') }}</option>
       @foreach ($variables as $variable)
         <option value="{{ $variable->value }}" @selected(old('variable', $metric->variable?->value) === $variable->value)>
           {{ $variable->label() }}
@@ -19,16 +19,16 @@
   </div>
 
   <div class="field col-span-full">
-    <x-ui.label for="description" value="Description" />
-    <x-ui.textarea id="description" name="description" rows="3" placeholder="Enter description (optional)"
+    <x-ui.label for="description" :value="trans('metrics.form.description')" />
+    <x-ui.textarea id="description" name="description" rows="3" :placeholder="trans('metrics.form.description_placeholder')"
       :disabled="$disabled">{{ old('description', $metric->description) }}</x-ui.textarea>
     <x-ui.errors :messages="$errors->get('description')" />
   </div>
 
   <div class="field">
-    <x-ui.label for="type" value="Type" required />
+    <x-ui.label for="type" :value="trans('metrics.form.type')" required />
     <x-ui.select id="type" name="type" required :disabled="$disabled">
-      <option value="">Select type</option>
+      <option value="">{{ trans('metrics.form.type_placeholder') }}</option>
       @foreach (AttributeType::cases() as $enum)
         <option value="{{ $enum->value }}" @selected(old('type', $metric->type?->value) === $enum->value)>
           {{ $enum->label() }}
@@ -39,9 +39,9 @@
   </div>
 
   <div class="field">
-    <x-ui.label for="weight" value="Weight" required />
+    <x-ui.label for="weight" :value="trans('metrics.form.weight')" required />
     <x-ui.input id="weight" name="weight" type="number" step="0.01" value="{{ old('weight', $metric->weight) }}"
-      required placeholder="Enter weight value" :disabled="$disabled">
+      required :placeholder="trans('metrics.form.weight_placeholder')" :disabled="$disabled">
       <x-slot:left>
         <i data-lucide="weight" class="text-base-400 size-5"></i>
       </x-slot:left>

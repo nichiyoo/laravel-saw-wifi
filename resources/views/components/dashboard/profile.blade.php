@@ -4,19 +4,19 @@
 
   $menus = ArrayHelper::collection([
       [
-          'name' => 'Profile',
+          'name' => trans('nav.profile'),
           'url' => route('profile.show'),
           'icon' => 'user2',
           'show' => true,
       ],
       [
-          'name' => 'Settings',
+          'name' => trans('nav.settings'),
           'url' => route('settings.index'),
           'icon' => 'settings',
           'show' => Gate::allows('viewAny', App\Models\Setting::class),
       ],
       [
-          'name' => 'Help',
+          'name' => trans('nav.help'),
           'url' => route('dashboard.help'),
           'icon' => 'life-buoy',
           'show' => true,
@@ -33,7 +33,7 @@
 
 <button {{ $props }}>
   <x-ui.avatar name="{{ Auth::user()->name }}" alt="{{ Auth::user()->name }}" />
-  <span class="sr-only">Open user menu</span>
+  <span class="sr-only">{{ trans('nav.open_user_menu') }}</span>
 </button>
 
 <div id="profile"
@@ -56,13 +56,15 @@
       @endif
     @endforeach
 
+    <li class="border-t border-base-200"></li>
+
     @development
       @foreach (RoleType::cases() as $role)
         <li>
           <a href="{{ route('development.impersonate', ['role' => $role]) }}"
             class="flex items-center gap-2 px-4 py-2 hover:bg-base-100 hover:text-indigo-500">
             <i data-lucide="shield-alert" class="size-4"></i>
-            Login {{ $role->label() }}
+            {{ trans('nav.development.login_as', ['role' => $role->label()]) }}
           </a>
         </li>
       @endforeach
@@ -71,7 +73,7 @@
         <a href="{{ route('development.migrate') }}"
           class="flex items-center gap-2 px-4 py-2 hover:bg-base-100 hover:text-red-500">
           <i data-lucide="database" class="size-4"></i>
-          Reseed migration
+          {{ trans('nav.development.reseed') }}
         </a>
       </li>
 
@@ -79,7 +81,7 @@
         <a href="{{ route('development.reset') }}"
           class="flex items-center gap-2 px-4 py-2 hover:bg-base-100 hover:text-red-500">
           <i data-lucide="database" class="size-4"></i>
-          Reset database
+          {{ trans('nav.development.reset') }}
         </a>
       </li>
     @enddevelopment
@@ -88,7 +90,7 @@
   <form method="POST" action="{{ route('logout') }}">
     @csrf
     <button type="submit" class="block w-full p-4 text-sm text-left text-red-500 hover:text-white hover:bg-red-500">
-      Sign out
+      {{ trans('nav.sign_out') }}
     </button>
   </form>
 </div>

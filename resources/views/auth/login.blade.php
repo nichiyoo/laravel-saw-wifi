@@ -12,9 +12,9 @@
     @csrf
 
     <div class="field">
-      <x-ui.label for="email" value="Email" />
+      <x-ui.label for="email" :value="trans('auth.email')" />
       <x-ui.input type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username"
-        placeholder="Enter your email">
+        :placeholder="trans('auth.email_placeholder')">
         <x-slot:left>
           <i data-lucide="mail" class="text-base-500 size-5"></i>
         </x-slot:left>
@@ -23,9 +23,9 @@
     </div>
 
     <div class="field">
-      <x-ui.label for="password" value="Password" />
+      <x-ui.label for="password" :value="trans('auth.password')" />
       <x-ui.input id="password" type="password" name="password" required autocomplete="current-password"
-        placeholder="Enter your password">
+        :placeholder="trans('auth.password_placeholder')">
         <x-slot:left>
           <i data-lucide="lock" class="text-base-500 size-5"></i>
         </x-slot:left>
@@ -34,14 +34,14 @@
     </div>
 
     <x-ui.button>
-      <span>Log in</span>
+      <span>{{ trans('auth.login_button') }}</span>
       <i data-lucide="arrow-up-right" class="size-5"></i>
     </x-ui.button>
 
 
     @if (Setting::get('registration_enabled'))
       <p class="text-center">
-        Don't have an account? <a href="{{ route('register') }}" class="text-primary-500">Register</a>
+        {!! trans('auth.register_link', ['url' => route('register')]) !!}
       </p>
     @endif
   </form>

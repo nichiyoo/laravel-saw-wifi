@@ -1,7 +1,7 @@
 <x-dashboard-layout>
   <x-dashboard.heading>
-    <x-slot:title>Dashboard</x-slot:title>
-    <x-slot:description>Welcome back, {{ Auth::user()->name }}</x-slot:description>
+    <x-slot:title>{{ trans('dashboard.title') }}</x-slot:title>
+    <x-slot:description>{{ trans('dashboard.heading.welcome', ['name' => Auth::user()->name]) }}</x-slot:description>
   </x-dashboard.heading>
 
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -25,7 +25,7 @@
   <x-ui.card class="hidden xl:block">
     <x-slot:header>
       <i data-lucide="bar-chart-2" class="size-5 text-primary-500"></i>
-      <h5>Kemantren Comparison</h5>
+      <h5>{{ trans('dashboard.chart.title') }}</h5>
     </x-slot:header>
     <div class="h-[400px]">
       <canvas id="comparisonChart"></canvas>
@@ -49,13 +49,13 @@
           data: {
             labels: labels,
             datasets: [{
-              label: 'JSS Users',
+              label: '{{ trans('dashboard.chart.jss_users') }}',
               data: data['jss_users'],
               backgroundColor: '#884c12',
               borderRadius: 4,
               yAxisID: 'y',
             }, {
-              label: 'WiFi Points',
+              label: '{{ trans('dashboard.chart.wifi_points') }}',
               data: data['wifi_count'],
               backgroundColor: '#b97338',
               borderRadius: 4,
@@ -77,7 +77,7 @@
                 position: 'left',
                 title: {
                   display: true,
-                  text: 'JSS Users'
+                  text: '{{ trans('dashboard.chart.jss_users') }}'
                 }
               },
               y1: {
@@ -85,7 +85,7 @@
                 position: 'right',
                 title: {
                   display: true,
-                  text: 'WiFi Points'
+                  text: '{{ trans('dashboard.chart.wifi_points') }}'
                 },
                 grid: {
                   drawOnChartArea: false

@@ -1,7 +1,7 @@
 <x-dashboard-layout>
   <x-dashboard.heading>
-    <x-slot:title>Help Center</x-slot:title>
-    <x-slot:description>Get help with your account, application, or any other topic.</x-slot:description>
+    <x-slot:title>{{ trans('help.title') }}</x-slot:title>
+    <x-slot:description>{{ trans('help.description') }}</x-slot:description>
   </x-dashboard.heading>
 
   <div class="grid items-start gap-4">
