@@ -4,7 +4,7 @@
     <x-slot:description>Welcome back, {{ Auth::user()->name }}</x-slot:description>
   </x-dashboard.heading>
 
-  <div class="grid grid-cols-2 gap-6 xl:grid-cols-4">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
     @foreach ($widgets as $widget)
       @continue($widget->show == false)
       <div class="p-6 border rounded-xl bg-base-50 border-base-200">
@@ -22,12 +22,12 @@
     @endforeach
   </div>
 
-  <x-ui.card>
+  <x-ui.card class="hidden xl:block">
     <x-slot:header>
       <i data-lucide="bar-chart-2" class="size-5 text-primary-500"></i>
       <h5>Kemantren Comparison</h5>
     </x-slot:header>
-    <div style="height: 450px;">
+    <div class="h-[400px]">
       <canvas id="comparisonChart"></canvas>
     </div>
   </x-ui.card>
@@ -66,6 +66,7 @@
             responsive: true,
             maintainAspectRatio: false,
             scales: {
+              indexAxis: 'y',
               x: {
                 ticks: {
                   maxRotation: 0

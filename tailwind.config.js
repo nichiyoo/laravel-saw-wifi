@@ -21,7 +21,7 @@ export default {
 		extend: {
 			container: {
 				center: true,
-				padding: '2rem',
+				padding: '1rem',
 			},
 			fontFamily: {
 				sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
