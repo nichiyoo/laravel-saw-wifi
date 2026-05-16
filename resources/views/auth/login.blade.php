@@ -4,8 +4,8 @@
 
 <x-guest-layout>
   <x-ui.heading>
-    <x-slot:title>Sign in</x-slot:title>
-    <x-slot:description>Welcome back! Please enter your details</x-slot:description>
+    <x-slot:title>{{ trans('auth.login.title') }}</x-slot:title>
+    <x-slot:description>{{ trans('auth.login.desc') }}</x-slot:description>
   </x-ui.heading>
 
   <form method="POST" action="{{ route('login') }}" class="form">

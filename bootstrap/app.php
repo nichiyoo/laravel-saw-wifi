@@ -3,8 +3,10 @@
 use App\Http\Middleware\RoleCheck;
 use Illuminate\Foundation\Application;
 use App\Http\Middleware\EnvirontmentCheck;
+use CodeZero\LocalizedRoutes\Middleware\SetLocale;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Routing\Middleware\SubstituteBindings;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -16,10 +18,18 @@ return Application::configure(basePath: dirname(__DIR__))
         \Repo\SawEngine\SawServiceProvider::class,
     ])
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->trustProxies(at: '*');
         $middleware->alias([
             'role' => RoleCheck::class,
             'env' => EnvirontmentCheck::class,
+        ]);
+
+        $middleware->web(remove: [
+            SubstituteBindings::class,
+        ]);
+
+        $middleware->web(append: [
+            SetLocale::class,
+            SubstituteBindings::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
