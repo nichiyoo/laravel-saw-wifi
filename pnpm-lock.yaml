@@ -11,6 +11,9 @@ importers:
       '@alpinejs/focus':
         specifier: ^3.15.8
         version: 3.15.12
+      flag-icons:
+        specifier: ^7.5.0
+        version: 7.5.0
       flowbite:
         specifier: ^4.0.1
         version: 4.0.2(rollup@4.60.3)
@@ -643,6 +646,9 @@ packages:
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
+
+  flag-icons@7.5.0:
+    resolution: {integrity: sha512-kd+MNXviFIg5hijH766tt+3x76ele1AXlo4zDdCxIvqWZhKt4T83bOtxUOOMlTx/EcFdUMH5yvQgYlFh1EqqFg==}
 
   flowbite-datepicker@2.0.0:
     resolution: {integrity: sha512-m81hl0Bimq45MUg4maJLOnXrX+C9lZ0AkjMb9uotuVUSr729k/YiymWDfVAm63AYDH7g7y3rI3ke3XaBzWWqLw==}
@@ -1558,6 +1564,8 @@ snapshots:
   fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
+
+  flag-icons@7.5.0: {}
 
   flowbite-datepicker@2.0.0(rollup@4.60.3):
     dependencies:
