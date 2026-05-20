@@ -131,7 +131,7 @@
   </div>
 
   <div class="absolute bottom-0 left-0 z-20 w-full bg-white border-t border-base-200">
-    <div class="items-center hidden h-16 gap-2 px-6 item-center lg:flex">
+    <div class="flex items-center h-16 gap-2 px-6 item-center">
       @can('viewAny', App\Models\Setting::class)
         <a href="{{ route('settings.index') }}">
           <x-ui.button size="icon" variant="ghost" tooltip="{{ trans('nav.sidebar.settings_page') }}"
@@ -147,7 +147,6 @@
           <i data-lucide="help-circle" class="size-5"></i>
         </x-ui.button>
       </a>
-
       <x-dashboard.language />
     </div>
   </div>
