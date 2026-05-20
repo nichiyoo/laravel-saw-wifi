@@ -40,7 +40,7 @@ return [
         'button' => 'Reset Tembung Sandhi',
     ],
 
-    'confirm_password' => [
+    'confirmation' => [
         'title' => 'Konfirmasi Tembung Sandhi',
         'desc' => 'Iki minangka area aman saka aplikasi. Mangga konfirmasi tembung sandhi panjenengan sadurunge nerusake.',
         'button' => 'Konfirmasi',

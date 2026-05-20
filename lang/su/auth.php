@@ -50,7 +50,7 @@ return [
         'button' => 'Reset Kecap Konci',
     ],
 
-    'confirm_password' => [
+    'confirmation' => [
         'title' => 'Konfirmasi Kecap Konci',
         'desc' => 'Ieu mangrupikeun area anu aman tina aplikasi. Mangga konfirmasi kecap konci anjeun sateuacan neraskeun.',
         'button' => 'Konfirmasi',

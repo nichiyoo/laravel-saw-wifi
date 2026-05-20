@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Setting;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
@@ -19,12 +20,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        $filepath = storage_path('app/settings.json');
-        $content = file_get_contents($filepath);
-        $settings = json_decode($content, true);
-
-        abort_if(!($settings['registration_enabled'] ?? true), 403, 'Registration is currently disabled.');
-
+        $enabled = (bool) Setting::get('registration_enabled');
+        if (!$enabled) return redirect()->route('dashboard');
         return view('auth.register');
     }
 

@@ -40,7 +40,7 @@ return [
         'button' => 'Reset Kata Sandi',
     ],
 
-    'confirm_password' => [
+    'confirmation' => [
         'title' => 'Konfirmasi Kata Sandi',
         'desc' => 'Ini adalah area aman dari aplikasi. Harap konfirmasi kata sandi Anda sebelum melanjutkan.',
         'button' => 'Konfirmasi',

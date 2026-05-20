@@ -50,7 +50,7 @@ return [
         'button' => 'パスワードをリセット',
     ],
 
-    'confirm_password' => [
+    'confirmation' => [
         'title' => 'パスワードを確認',
         'desc' => 'これはアプリケーションのセキュリティエリアです。続行する前にパスワードを確認してください。',
         'button' => '確認',

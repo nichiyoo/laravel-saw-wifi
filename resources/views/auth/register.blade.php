@@ -31,8 +31,7 @@
 
     <div class="field">
       <x-ui.label for="password" :value="trans('auth.password')" />
-      <x-ui.input id="password" type="password" name="password" required autocomplete="new-password"
-        :placeholder="trans('auth.password_placeholder')">
+      <x-ui.input id="password" type="password" name="password" required autocomplete="new-password" :placeholder="trans('auth.password_placeholder')">
         <x-slot:left>
           <i data-lucide="lock" class="text-base-500 size-5"></i>
         </x-slot:left>

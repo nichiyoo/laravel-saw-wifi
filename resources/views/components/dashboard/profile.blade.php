@@ -56,9 +56,9 @@
       @endif
     @endforeach
 
-    <li class="border-t border-base-200"></li>
-
     @development
+      <li class="border-t border-base-200"></li>
+
       @foreach (RoleType::cases() as $role)
         <li>
           <a href="{{ route('development.impersonate', ['role' => $role]) }}"

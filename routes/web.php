@@ -3,16 +3,21 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DssController;
 use App\Http\Controllers\MetricController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\DashboardController;
 
 Route::localized(function () {
+    Route::controller(HelperController::class)
+        ->group(function () {
+            Route::get('/', 'root')->name('root');
+            Route::get('/test', 'test')->name('test');
+        });
+
     Route::middleware('auth')
         ->group(function () {
-            Route::get('/', fn() => redirect()->route('dashboard'));
-
             Route::prefix('dashboard')
                 ->controller(DashboardController::class)
                 ->group(function () {
