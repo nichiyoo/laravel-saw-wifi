@@ -86,16 +86,12 @@ class MetricController extends Controller
      */
     public function edit(Metric $metric): View
     {
-        $used = Metric::query()->where($metric->id)->pluck('variable');
-        $variables = collect(VariableType::cases());
-
         return view('dashboard.metrics.edit', [
             'metric' => $metric,
-            'variables' => $variables->reject(function ($item) use ($used) {
-                return $used->contains($item);
-            }),
+            'variables' => collect($metric->variable)
         ]);
     }
+
 
     /**
      * Update the specified resource in storage.
