@@ -18,16 +18,16 @@ class MetricSeeder extends Seeder
     {
         $metrics = [
             [
-                'variable' => VariableType::JSS_USERS,
-                'description' => 'Jumlah pengguna Wi-Fi Jogja Smart Service',
-                'type' => AttributeType::BENEFIT,
-                'weight' => 0.25,
-            ],
-            [
                 'variable' => VariableType::POPULATION_DENSITY,
                 'description' => 'Densitas populasi pada Kemantren (jiwa/km²)',
                 'type' => AttributeType::BENEFIT,
-                'weight' => 0.15,
+                'weight' => 0.20,
+            ],
+            [
+                'variable' => VariableType::JSS_USERS,
+                'description' => 'Jumlah pengguna Wi-Fi Jogja Smart Service',
+                'type' => AttributeType::BENEFIT,
+                'weight' => 0.30,
             ],
             [
                 'variable' => VariableType::WIFI_COUNT,
@@ -39,7 +39,7 @@ class MetricSeeder extends Seeder
                 'variable' => VariableType::SELF_FUNDING,
                 'description' => 'Jumlah dana swadaya komunitas berdasarkan Kemantren',
                 'type' => AttributeType::COST,
-                'weight' => 0.25,
+                'weight' => 0.15,
             ],
         ];
 
